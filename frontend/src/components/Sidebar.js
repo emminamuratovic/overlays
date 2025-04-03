@@ -13,7 +13,7 @@ const Sidebar = () => {
               }`
             } 
           >
-            Widgets
+            Chat
           </NavLink>
         </li>
         <li>

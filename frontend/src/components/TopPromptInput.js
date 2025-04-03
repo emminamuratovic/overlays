@@ -9,10 +9,12 @@ const TopPromptInput = ({ onSubmit }) => {
     e.preventDefault();
     try {
       const response = await sendPrompt({ prompt });
-      onSubmit([response.data])
+      onSubmit([{role: "Assistant", msg: response.data.response.content}, {role: "Me", msg: prompt}])
     } catch (err) {
       console.error(err);
+      onSubmit("AbortError")
     }
+    setPrompt("")
   };
 
   return (
