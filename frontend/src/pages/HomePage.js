@@ -12,22 +12,23 @@ import UpperNav from "../components/UpperNav";
 const HomePage = () => {
 
     return (
-        <div className="flex h-screen flex-col">
-            <UpperNav />
-            <div className="flex flex-1 pt-16">
-                <Sidebar />
-                <div className="flex-1 p-6 overflow-auto">
-                    <Routes>
-                        <Route path="/puppets" element={<Puppets />} />
-                        <Route path="/overlays" element={<Overlays />} />
-                        <Route path="/fx" element={<FX />} />
-                        <Route path="/themes" element={<Themes />} />
-                        {/* Default route */}
-                        <Route path="/" element={<Chat />} />
-                    </Routes>
-                </div>
-            </div>
+        <div className="flex flex-col h-screen">
+      <UpperNav />
+
+      <div className="flex flex-1 pt-16 md:flex-row">
+        <Sidebar />
+
+        <div className="flex-1 p-4 overflow-y-auto bg-white">
+          <Routes>
+            <Route path="/puppets" element={<Puppets />} />
+            <Route path="/overlays" element={<Overlays />} />
+            <Route path="/fx" element={<FX />} />
+            <Route path="/themes" element={<Themes />} />
+            <Route path="/" element={<Chat />} />
+          </Routes>
         </div>
+      </div>
+    </div>
     );
 };
 

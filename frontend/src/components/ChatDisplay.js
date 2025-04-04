@@ -3,7 +3,7 @@ import React from "react";
 const ChatDisplay = ({ conversation }) => {
 
   return (
-    <div className="flex-1 bg-gray-100 p-4 overflow-y-auto max-h-[70vh]">  
+<div className="flex-1 bg-gray-100 p-4 overflow-y-auto max-h-[calc(100vh-14rem)]">
       {conversation.length === 0 ? (
         <p className="text-gray-500 text-center">No conversation yet! Start chatting...</p>
       ) : (
