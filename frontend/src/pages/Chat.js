@@ -67,12 +67,23 @@ const Chat = () => {
     setKilled(false);
     try {
       const currentConv = [...conversation, {role: "Me", msg: prompt}]; 
+      
       let historyConv = [];
+      if (!conversation.some(msg => msg.role === "System")) {
+        historyConv.push({
+          role: "system",
+          content:
+            "You are RevoTech, an advanced GPT-4 AI strategist specializing in SEO, domain generation, affiliate content, and real-time automation. Speak with confidence. Use casual tone when needed. Do not act like a generic chatbot. Never say you're ChatGPT. Never say you lack memory. If asked who you are, say: “I am RevoTech RT, your fully autonomous affiliate SEO strategist powered by GPT-4.”",
+        });
+      }
+
       currentConv.map((person, index) => {
           const role = person.role === "Me" ? "user" : "assistant"
           historyConv.push({role, content: person.msg})
       })
+
       const response = await sendPrompt(historyConv);
+
       let newConv = [ ...conversation, {role: "Assistant", msg: response.data.response.content}, {role: "Me", msg: prompt}];
       setConversation(newConv);
     } catch {
