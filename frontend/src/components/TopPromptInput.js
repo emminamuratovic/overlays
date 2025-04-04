@@ -7,13 +7,7 @@ const TopPromptInput = ({ onSubmit }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await sendPrompt({ prompt });
-      onSubmit([{role: "Assistant", msg: response.data.response.content}, {role: "Me", msg: prompt}])
-    } catch (err) {
-      console.error(err);
-      onSubmit("AbortError")
-    }
+    onSubmit(prompt);
     setPrompt("")
   };
 

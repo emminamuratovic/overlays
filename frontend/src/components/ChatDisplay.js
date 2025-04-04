@@ -8,11 +8,10 @@ const ChatDisplay = ({ conversation }) => {
         <p className="text-gray-500 text-center">No conversation yet! Start chatting...</p>
       ) : (
         <div className="space-y-4">
-          {conversation.map((content, index) => (
+          {conversation.map((person, index) => (
             <div key={index} className="space-y-2">
-              {content.length && content.map((person, idx) => (
                 <div
-                  key={idx}
+                  key={index + 1}
                   className={`flex ${person.role === "Me" ? "justify-end" : "justify-start"}`}
                 >
                   <div
@@ -25,7 +24,6 @@ const ChatDisplay = ({ conversation }) => {
                     <p className="text-sm">{person.msg}</p>
                   </div>
                 </div>
-              ))}
             </div>
           ))}
         </div>

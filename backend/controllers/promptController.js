@@ -7,7 +7,7 @@ const openai = new OpenAI({
 
 
 const handlePrompt = async (req, res) => {
-  const { prompt } = req.body;
+  const { messages } = req.body;
 
   req.on("close", () => {
     console.log("Client disconnected, stopping AI request.");
@@ -17,7 +17,7 @@ const handlePrompt = async (req, res) => {
   try {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
-      messages: [{ role: "user", content: prompt.prompt }],
+      messages
     });
 
     res.json({ response: completion.choices[0].message });
