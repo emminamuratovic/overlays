@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { sendPrompt } from '../api/promptAPI';  
 
 
 const TopPromptInput = ({ onSubmit }) => {
