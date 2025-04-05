@@ -1,4 +1,3 @@
-import React from "react";
 import JarvisDashboard from "./components/JarvisDashboard";
 
 function App() {
