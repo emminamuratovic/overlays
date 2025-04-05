@@ -2,13 +2,13 @@ import { OpenAI } from "openai";
 import { recall } from "./memoryService"; // adjust path if needed
 
 const openai = new OpenAI({
-  apiKey: process.env.REACT_APP_OPENAI_API_KEY
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY // ✅ uses the correct env var for Vercel
 });
 
 export default async function handler(req, res) {
   const { userPrompt } = req.body;
 
-  // Example: inject memory from a specific tag (you can make this dynamic later)
+  // Optional: Inject memory from a specific tag
   const memory = await recall("domains-bosnia");
 
   const messages = [
