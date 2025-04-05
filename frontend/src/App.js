@@ -1,13 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import JarvisDashboard from "./components/JarvisDashboard";
 
 function App() {
-  return (
-    <Router>
-      <HomePage />
-    </Router>
-  );
+  return <JarvisDashboard />;
 }
 
 export default App;
